@@ -1,4 +1,4 @@
- import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -11,6 +11,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
   templateUrl: './artist-album-list.component.html',
   styleUrl: './artist-album-list.component.css'
 })
+
 export class ArtistAlbumListComponent {
   public albums: any[] = [];  
 

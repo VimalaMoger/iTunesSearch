@@ -12,7 +12,7 @@ interface SearchItem {
    trackName: string;
 }
 
-/* Service uses Http client livrary to make requests, converts data into model instances*/
+/* Service uses Http client library to make requests, converts data into model instances*/
 @Injectable()
 export class SearchService {
   results: [{ [key: string]: SearchItem[] }] = [{}];       
@@ -51,7 +51,7 @@ export class SearchService {
   ).catch((err) => console.error(err)); 
   } 
 
-//using firsValueFrom- subscribes to observable, coverts  to promise, return promise resolves to first value from observable
+//using firsValueFrom- subscribes to observable, converts  to promise, returns promise -resolves to first value from observable
   searchV2(term: string) {
     return new Promise((resolve,reject)=>{
       let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20`;
@@ -95,12 +95,12 @@ export class UserService {
 })
 
 export class SearchComponent implements OnInit{
-  //adding a Loading indicator to template, initially set to false
+  //adding a Loading indicator to template
   loading: boolean = true;
   //storing the results locally 
   results?: Observable<any>;
   results$: [{ [key: string]: SearchItem[] }] = [{}]; 
-  searchField!: FormControl;
+  searchField!: FormControl;   //form instance 
   //import and inject AcivatedRoute into constructor
   constructor(public itunes: SearchService, private route: ActivatedRoute, private router : Router){ //this route exposes observable that we subscribe to
     this.route.params.subscribe(params => {
@@ -113,6 +113,7 @@ export class SearchComponent implements OnInit{
 
   ngOnInit() {
     this.searchField = new FormControl();
+    //form instance exposes an observable via it's valueChanges property
     this.results = this.searchField.valueChanges.pipe(
       debounceTime(400),
       distinctUntilChanged(),

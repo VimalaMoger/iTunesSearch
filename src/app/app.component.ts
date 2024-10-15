@@ -6,7 +6,7 @@ import { HeaderComponent } from "./header/header.component";
 import { UserService } from './search/search.component';
 
 //Router Guards
-
+//lets the user if logged in returns true
 @Injectable({providedIn:'root'})
 export class OnlyLoggedInUsersGuard implements CanActivate {  
   constructor(private userService: UserService, private router: Router) {}; 
@@ -22,6 +22,7 @@ export class OnlyLoggedInUsersGuard implements CanActivate {
     }
   }
 } 
+//lets render the child components
 @Injectable({providedIn:'root'}) 
 export class AlwaysAuthChildrenGuard implements CanActivateChild {
   canActivateChild() {
