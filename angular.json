@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "itunes-app": {
+    "iTunes-search": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/itunes-app",
+            "outputPath": "dist/i-tunes-search",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -59,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "itunes-app:build:production"
+              "buildTarget": "iTunes-search:build:production"
             },
             "development": {
-              "buildTarget": "itunes-app:build:development"
+              "buildTarget": "iTunes-search:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -94,6 +94,6 @@
     }
   },
   "cli": {
-    "analytics": "bc40edf5-665b-4d92-b782-703819297896"
+    "analytics": false
   }
 }
